@@ -8,6 +8,8 @@ from PyQt5.QtGui import QPixmap
 
 Form= uic.loadUiType(os.path.join(os.getcwd(),'Pg2.ui'))[0]
 
+
+
 class SecondPage(QMainWindow,Form):
     def __init__(self,parent):
         Form.__init__(self)
@@ -33,6 +35,15 @@ class SecondPage(QMainWindow,Form):
         
         list_of_images = os.listdir(open_file)
         list_of_images = sorted(list_of_images)
+        # pixmap=QPixmap(os.path.join(open_file,list_of_images[2]))
+        # self.ImageLabel.setPixmap(pixmap)
+        print(list_of_images[2])
+
+        
+        # for index, value in enumerate(list_of_images):
+        #     list_of_images[index] = open_file + value
+
+
         # pixmap=list_of_images[0]
         # self.ImageLabel.setPixmap(list_of_images[0])
         # self.ImageLabel.setMask(list_of_images.mask())
