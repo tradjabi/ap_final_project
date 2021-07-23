@@ -21,6 +21,7 @@ class FirstPage(QMainWindow,Form):
         self.CancelButton.clicked.connect(self.Cancelfunc)
         self.FindButton.clicked.connect(self.Openfunc)
         self.NextButton.clicked.connect(self.Nextfunc)
+
     def Nextfunc(self):
         if FirstPage.flag:
             directory=self.ProjName.text()
@@ -31,6 +32,7 @@ class FirstPage(QMainWindow,Form):
                 os.mkdir(Path)
                 FirstPage.ProjDir=Path
                 self.statusbar.showMessage("New directory created: '" + Path + "'")
+                
         self.w2=SecondPage(self)
         self.w2.show()
         self.hide()
@@ -49,7 +51,10 @@ class FirstPage(QMainWindow,Form):
         self.close()
 
 if __name__=="__main__":
-    app=QApplication(sys.argv)      
-    w=FirstPage()
+    app = QApplication(sys.argv)
+    app.setStyle("fusion")    
+    
+    w = FirstPage()
     w.show()
+    
     sys.exit(app.exec_())

@@ -9,8 +9,8 @@ from PyQt5.QtGui import QPixmap
 Form= uic.loadUiType(os.path.join(os.getcwd(),'Pg2.ui'))[0]
 
 
-
 class SecondPage(QMainWindow,Form):
+    flag=True
     def __init__(self,parent):
         Form.__init__(self)
         QMainWindow.__init__(self)
@@ -22,6 +22,23 @@ class SecondPage(QMainWindow,Form):
         self.SelectFile.clicked.connect(self.SelFile)
         self.SelectFolder.clicked.connect(self.SelFolder)
         self.BackButton.clicked.connect(self.PrevShow)
+        self.nextButton_2.clicked.connect(self.Nextfunc)
+
+    def Nextfunc(self):
+        # if SecondPage.flag:
+        #     directory=self.ProjName.text()
+        #     Path=os.path.join("F:/Image_Processing/",directory)
+        #     if os.path.exists(Path):
+        #         self.statusbar.showMessage("Error: A directory with the same name exists.",6000)
+        #     else:
+        #         os.mkdir()
+        #         SecondPage.ProjDir=Path
+        #         self.statusbar.showMessage("New directory created: '" + Path + "'")
+                
+        self.w3 = fourthpage(self)
+        self.w3.show()
+        self.hide()
+
 
     def PrevShow(self):
         self.parent.show()
